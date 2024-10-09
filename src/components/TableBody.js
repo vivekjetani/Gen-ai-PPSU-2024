@@ -8,7 +8,7 @@ function TableBody({ Participationdata,
 
 
     return (
-        <tbody className='text-xs '>
+        <tbody className='text-xs z-0'>
             {Participationdata.length > 0 ? Participationdata.map((participant, index) => {
 
                 return <TableRow key={participant["User Email"] || 1} participant={participant} />

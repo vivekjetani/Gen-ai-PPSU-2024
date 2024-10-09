@@ -79,9 +79,9 @@ function TableIndex() {
         </div>
       </div>
 
-      <table className='mx-auto table-fixed m-5  '>
-        <thead className='shadow-md text-sm bg-blue-500 text-gray-200 sticky top-2 z-10'>
-          <tr className='text-center '>
+      <table className='mx-auto table-fixed m-5 '>
+        <thead className='shadow-md text-sm bg-blue-500 text-gray-200 sticky top-2 z-0'>
+          <tr className='text-center'>
             <td className="rounded-ss-lg w-80 p-2 border-r-2 border-r-gray-300">Name</td>
             <td className="p-2 border-r-2 border-r-gray-300">Redemption Status</td>
             <td className="mob:hidden p-2 px-10 border-r-2 border-r-gray-300">Cloud Skill Boost Profile</td>
