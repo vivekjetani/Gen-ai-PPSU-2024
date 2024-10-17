@@ -10,16 +10,30 @@ function TableIndex() {
   const data = JSON.parse(imported_data);
   const [Participationdata, setParticipationdata] = useState([...data]);
   const [EligibleforSwags, setEligibleforSwags] = useState(0);
+  const [EligibleforCertificates, setEligibleforCertificates] = useState(0);
 
 
 
   const calculateTotalEligibility = () => {
     let total = 0;
+    // Set a limit of 80 participants for swags
+    for (let i = 0; i < data.length; i++) {
+      if (data[i]["All Skill Badges & Games Completed"] === "Yes") {
+        total++;
+        if (total === 80) break; // Stop counting once total reaches 80
+      }
+    }
+    setEligibleforSwags(total);
+  }
+
+  const calculateTotalEligibilityforCertificates = () => {
+    let total = 0;
     data.forEach((ele) => {
       ele["All Skill Badges & Games Completed"] == "Yes" && total++;
     })
-    setEligibleforSwags(total)
+    setEligibleforCertificates(total)
   }
+
 
   const searchname = (name) => {
     const newArr = [];
@@ -36,6 +50,7 @@ function TableIndex() {
 
   useEffect(() => {
     calculateTotalEligibility();
+    calculateTotalEligibilityforCertificates();
   }, [])
 
 
@@ -57,8 +72,12 @@ function TableIndex() {
         
         <div className="info flex mob:flex-col mob:justify-center mob:items-center mob:space-y-10 mob:p-5 justify-evenly space-x-3 mob:space-x-0">
           <div className="eligibleforswag w-fit mob:w-full h-20 p-5 space-x-5 rounded-lg flex flex-row justify-evenly mob:justify-between items-center bg-blue-50 shadow-lg shadow-blue-300/30 border border-blue-200">
-            <p className="text-center mob:text-start text-sm text-blue-400">No of Eligible <br /> Participants for Certificates</p>
+            <p className="text-center mob:text-start text-sm text-blue-400">No of Eligible <br /> Participants for swags and certificates</p>
             <p className="no text-2xl border-l-2 border-l-blue-700 pl-3 text-blue-800">{EligibleforSwags}</p>
+          </div>
+          <div className="eligibleforswag w-fit mob:w-full h-20 p-5 space-x-5 rounded-lg flex flex-row justify-evenly mob:justify-between items-center bg-blue-50 shadow-lg shadow-blue-300/30 border border-blue-200">
+            <p className="text-center mob:text-start text-sm text-blue-400">No of Eligible <br /> Participants for Certificates</p>
+            <p className="no text-2xl border-l-2 border-l-blue-700 pl-3 text-blue-800">{EligibleforCertificates}</p>
           </div>
           <div className="eligibleforswag w-fit mob:w-full h-20 p-5 space-x-5 rounded-lg flex flex-row justify-evenly mob:justify-between items-center bg-blue-50 shadow-lg shadow-blue-300/30 border border-blue-200">
             <p className="text-center mob:text-start text-sm text-blue-400">Total No of <br />Participants</p>
