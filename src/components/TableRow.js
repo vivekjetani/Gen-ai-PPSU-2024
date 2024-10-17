@@ -102,7 +102,7 @@ function TableRow({ participant }) {
                 </div>
             </td>
 
-            <td className="p-3 text-center relative"
+            <td className="Institution mob:hidden relative p-3 p-3 text-center relative"
              onMouseEnter={() => setHoverCardVisible(true)}
              onMouseLeave={() => setHoverCardVisible(false)}>
                 <div 
