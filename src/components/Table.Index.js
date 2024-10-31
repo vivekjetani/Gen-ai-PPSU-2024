@@ -68,7 +68,7 @@ function TableIndex() {
           completion={EligibleforSwags}
         /> */}
         <h1 className="text-center"><b style={{color:'#3b82f6'}}>GDSC PPSU Team to <u>{EligibleforSwags} Participants</u>,</b></h1>
-        
+        <img width="40%" className="m-auto" src="https://www.system-concepts.com/wp-content/uploads/2020/02/excited-minions-gif.gif" alt="level" />
         
         <div className="info flex mob:flex-col mob:justify-center mob:items-center mob:space-y-10 mob:p-5 justify-evenly space-x-3 mob:space-x-0">
           <div className="eligibleforswag w-fit mob:w-full h-20 p-5 space-x-5 rounded-lg flex flex-row justify-evenly mob:justify-between items-center bg-blue-50 shadow-lg shadow-blue-300/30 border border-blue-200">
